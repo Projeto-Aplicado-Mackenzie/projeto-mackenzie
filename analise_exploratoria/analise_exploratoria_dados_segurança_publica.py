@@ -67,3 +67,33 @@ media_vitimas_mes
 
 frequencia.plot(kind='hist')
 
+indicador_crimes_sp.head()
+
+"""## Analise das 10 cidades com mais vitimas em SP agrupadas nos anos e meses."""
+
+from matplotlib import pyplot as plt
+
+top_10_cidades = indicador_crimes_sp.sort_values(by='vitimas', ascending=False)
+top_10_cidades_por_municipios = top_10_cidades.groupby('municipio')
+
+top_10_cidades = top_10_cidades_por_municipios.head(10)
+# top_10_cidades.head(10)
+
+df_agrupado = top_10_cidades.groupby('municipio').agg({'vitimas': 'sum'}).reset_index()
+df_agrupado = df_agrupado.sort_values(by='vitimas', ascending=False)
+df_agrupado.head()
+
+plt.barh(df_agrupado.head(10).municipio, df_agrupado.head(10).vitimas)
+
+produtividade_policial = pd.read_csv('produtividade_policial_sp_novo.csv', sep=';')
+# pd.set_option('display.float_format', '{:.0f}'.format)
+produtividade_policial.head()
+
+trns_prod_policial = produtividade_policial.T.iloc[:, 1:]
+trns_prod_policial.head()
+
+for column in trns_prod_policial.columns:
+    trns_prod_policial[column] = pd.to_numeric(trns_prod_policial[column], errors='coerce')
+
+trns_prod_policial.plot()
+
