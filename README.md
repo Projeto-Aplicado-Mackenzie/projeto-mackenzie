@@ -4,4 +4,4 @@ Este trabalho tem por finalizade analisar datasets e correlacionar a criminalida
 
 ## Link do Video da apresentação no youtube
 
-[An in-depth paragraph about your project and overview of use.](https://www.youtube.com/watch?v=cCtRbghox54&ab_channel=GlaytonPaula)
+[Link para o video do youtube, apresentação final.](https://www.youtube.com/watch?v=cCtRbghox54&ab_channel=GlaytonPaula)
